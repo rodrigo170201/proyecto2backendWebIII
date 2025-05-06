@@ -96,7 +96,7 @@ class CuentaViewSet(viewsets.ModelViewSet):
         if not destino_num.isdigit() or len(destino_num) != 10:
             return Response({'error': 'Número de cuenta destino inválido'}, status=status.HTTP_400_BAD_REQUEST)
 
-        # Validar cuenta destino (en toda la base, no solo del usuario)
+        # Validar cuenta destino
         try:
             cuenta_destino = Cuenta.objects.get(numero_cuenta=destino_num)
         except Cuenta.DoesNotExist:
